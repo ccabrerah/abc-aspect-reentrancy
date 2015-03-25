@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching
+END
+SkipLoop.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching/SkipLoop.java
+END
+State.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching/State.java
+END
+SMEdge.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching/SMEdge.java
+END
+SMNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching/SMNode.java
+END
+StateMachine.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching/StateMachine.java
+END
+TMStateMachine.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching/TMStateMachine.java
+END
+SMEdgeFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/matching/SMEdgeFactory.java
+END

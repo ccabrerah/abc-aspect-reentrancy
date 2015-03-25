@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner
+END
+Separators.flex
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/Separators.flex
+END
+macros.flex
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/macros.flex
+END
+Comments.flex
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/Comments.flex
+END
+Identifiers.flex
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/Identifiers.flex
+END
+postamble.flex
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/postamble.flex
+END
+Keywords.flex
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/Keywords.flex
+END
+preamble.flex
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/preamble.flex
+END
+Unicode.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/Unicode.java
+END
+WhiteSpace.flex
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/WhiteSpace.flex
+END
+Operators.flex
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/Operators.flex
+END
+Literals.flex
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/Literals.flex
+END
+rules_preamble.flex
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddJ/Java1.4Frontend/scanner/rules_preamble.flex
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot
+END
+AbstractInterfaceInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/AbstractInterfaceInvokeExpr.java
+END
+AbstractSpecialInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/AbstractSpecialInvokeExpr.java
+END
+AbstractInstanceInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/AbstractInstanceInvokeExpr.java
+END
+AbstractVirtualInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/AbstractVirtualInvokeExpr.java
+END
+JInterfaceInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/JInterfaceInvokeExpr.java
+END
+JSpecialInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/JSpecialInvokeExpr.java
+END
+SiteInliner.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/SiteInliner.java
+END
+AbstractStaticInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/AbstractStaticInvokeExpr.java
+END
+ModifiableInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/ModifiableInvokeExpr.java
+END
+JVirtualInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/JVirtualInvokeExpr.java
+END
+JStaticInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/JStaticInvokeExpr.java
+END
+AbstractInvokeExpr.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/around/soot/AbstractInvokeExpr.java
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend
+END
+EmitJimple.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/EmitJimple.jrag
+END
+ant.settings
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/ant.settings
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/LICENSE
+END
+BooleanExpressions.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/BooleanExpressions.jrag
+END
+Expressions.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/Expressions.jrag
+END
+Statements.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/Statements.jrag
+END
+JavaCompiler.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/JavaCompiler.java
+END
+LocalNum.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/LocalNum.jrag
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/JastAddExtensions/JimpleBackend/build.xml
+END

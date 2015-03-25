@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect
+END
+AdviceSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/AdviceSignatureImpl.java
+END
+CatchClauseSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/CatchClauseSignatureImpl.java
+END
+SignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/SignatureImpl.java
+END
+MethodSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/MethodSignatureImpl.java
+END
+StringMaker.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/StringMaker.java
+END
+Factory.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/Factory.java
+END
+FieldSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/FieldSignatureImpl.java
+END
+InitializerSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/InitializerSignatureImpl.java
+END
+ConstructorSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/ConstructorSignatureImpl.java
+END
+JoinPointImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/JoinPointImpl.java
+END
+MemberSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/MemberSignatureImpl.java
+END
+SourceLocationImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/SourceLocationImpl.java
+END
+CodeSignatureImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/runtime/reflect/CodeSignatureImpl.java
+END

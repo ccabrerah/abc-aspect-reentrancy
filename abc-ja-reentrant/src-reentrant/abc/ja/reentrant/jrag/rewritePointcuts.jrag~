@@ -1,0 +1,103 @@
+aspect RewritePointcuts{
+
+
+    //rewrite to add level constraints
+    public int AspectDecl.level = 0; //here will be stored the level declared for an aspect
+
+    public boolean AdviceDecl.rewroteToAddLevel = false;
+
+    rewrite AdviceDecl {
+        when ( !this.rewroteToAddLevel )
+        to AdviceDecl {
+            /* wrap this object's PointcutExpr in another PointExpr: x ->  level(l) && x */
+
+            if ( this.getParent().getParent() instanceof AspectDecl ) { //defensive approach because of unexpected behavior in another part of the implementation
+
+	    AspectDecl aspectDecl = (AspectDecl)this.getParent().getParent() ;
+	    
+
+            int intentedLevel = aspectDecl.level;
+            System.out.println( "rewriting pointcut to match only level->" + intentedLevel );
+
+            PointcutExpr oldPointcutExpr = this.getPointcutExpr();
+
+            LevelPointcutExpr levelPointcutExpr = new LevelPointcutExpr();
+            levelPointcutExpr.setlevel(intentedLevel);
+
+            AndPointcutExpr newPointcutExpr = new AndPointcutExpr(levelPointcutExpr, oldPointcutExpr);
+
+            this.setPointcutExpr(newPointcutExpr);
+
+            }
+
+            this.rewroteToAddLevel = true;
+            return this;
+
+        }
+    }
+
+
+    //rewrite to add reentrancy control
+    public boolean AdviceDecl.addedReentrancyCheck = false;
+
+    rewrite AdviceDecl {
+        when ( !this.addedReentrancyCheck && this.rewroteToAddLevel) //important. The two extra pointcuts need to be evaluated first.
+        to AdviceDecl {
+	    /*  level(l) && x  ->  notReentering() && ( level(l) && x )  */
+
+
+	    System.out.println( "adding reentrancy control" );
+
+            PointcutExpr oldPointcutExpr = this.getPointcutExpr();
+
+	    AspectDecl aspectDecl = (AspectDecl)this.getParent().getParent() ;
+	    
+	    PointcutExpr notReenteringPointcutExpr =   new ReentrancyCheckPointcutAddOnExpr(oldPointcutExpr);
+	    ((ReentrancyCheckPointcutAddOnExpr)notReenteringPointcutExpr).enclosingAspect = aspectDecl;
+	  
+	    PointcutExpr newPointcutExpr = new AndPointcutExpr(levelPointcutExpr, oldPointcutExpr);
+
+	    this.setPointcutExpr(newPointcutExpr);
+
+	    this.addedReentrancyCheck = true;
+	    return this;
+
+	}
+	
+	
+	
+    }
+
+
+
+    // cflow-> lcflow,  gcflow
+    //rewrite to change cflow to a lcflow
+
+    //this flag is needed because gcflow will generate nodes of this kind too, and we need to treat them both differently
+    public boolean CflowPointcutExpr.declaredAsCflow = true; 
+
+    rewrite CflowPointcutExpr {
+        when ( this.declaredAsCflow )
+        to LCflowPointcutExpr {
+            return new LCflowPointcutExpr( this.getPointcut() );
+        }
+        
+
+
+    }
+
+    public boolean CflowBelowPointcutExpr.declaredAsCflow = true; //this is necessary, because gcflow will generate nodes of this kind too, and we need to treat them differently
+
+    rewrite CflowBelowPointcutExpr {
+        when ( this.declaredAsCflow )
+        to LCflowBelowPointcutExpr {
+            return new LCflowBelowPointcutExpr( this.getPointcut() );
+        }
+
+
+
+    }
+
+
+
+}

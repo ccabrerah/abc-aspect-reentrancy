@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/ds
+END
+Shadow.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/ds/Shadow.java
+END
+Bag.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/ds/Bag.java
+END
+WeavableMethods.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/ds/WeavableMethods.java
+END
+HashBag.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/ds/HashBag.java
+END
+ShadowComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/ds/ShadowComparator.java
+END

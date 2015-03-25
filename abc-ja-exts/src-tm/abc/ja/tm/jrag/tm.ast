@@ -1,0 +1,28 @@
+TraceMatchDecl : AdviceDecl ::=
+    SymbolDecl* Frequent:SymbolAccess*;
+
+TMAdviceSpec : AdviceSpec;
+TMAroundSpec : AroundSpec;
+
+SymbolDecl ::= <ID:String> /Parameter:ParameterDeclaration*/
+               SymbolKind PointcutExpr;
+
+abstract SymbolKind;
+BeforeSymbol : SymbolKind;
+AfterSymbol : SymbolKind;
+AfterReturningSymbol : SymbolKind ::= [VarAccess];
+AfterThrowingSymbol : SymbolKind ::= [VarAccess];
+AroundSymbol : SymbolKind ::= VarAccess*;
+
+FrequentSymbols ::= SymbolAccess*;
+
+SymbolAccess : Access ::= <ID:String>;
+
+abstract Regex : PointcutExpr;
+RegexAlternation : Regex ::= Lhs:Regex Rhs:Regex;
+RegexSequence : Regex ::= Lhs:Regex Rhs:Regex;
+RegexSymbol : Regex ::= SymbolAccess;
+RegexStar : Regex ::= Regex;
+RegexPlus : Regex ::= Regex;
+RegexCount : Regex ::= Regex Min:IntegerLiteral Max:IntegerLiteral;
+RegexSkipSequence : Regex ::= Lhs:Regex Forbidden:SymbolAccess* Rhs:Regex;

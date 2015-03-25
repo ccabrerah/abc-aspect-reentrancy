@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc/src/abc/weaving/residues
+END
+OrResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/OrResidue.java
+END
+PolyLocalVar.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/PolyLocalVar.java
+END
+AssertResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/AssertResidue.java
+END
+JoinPointInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/JoinPointInfo.java
+END
+BindingLink.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/BindingLink.java
+END
+NeverMatch.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/NeverMatch.java
+END
+StaticJoinPointInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/StaticJoinPointInfo.java
+END
+Residue.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/Residue.java
+END
+TestResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/TestResidue.java
+END
+LocalVar.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/LocalVar.java
+END
+AspectOf.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/AspectOf.java
+END
+OnceResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/OnceResidue.java
+END
+IsNull.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/IsNull.java
+END
+SeqResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/SeqResidue.java
+END
+ResidueBox.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/ResidueBox.java
+END
+BindMaskResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/BindMaskResidue.java
+END
+WeavingVar.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/WeavingVar.java
+END
+Copy.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/Copy.java
+END
+HasAspect.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/HasAspect.java
+END
+SetResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/SetResidue.java
+END
+Bind.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/Bind.java
+END
+JimpleValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/JimpleValue.java
+END
+AlwaysMatch.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/AlwaysMatch.java
+END
+Load.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/Load.java
+END
+CheckType.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/CheckType.java
+END
+IfResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc/src/abc/weaving/residues/IfResidue.java
+END
+NotResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/NotResidue.java
+END
+ContextValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/ContextValue.java
+END
+AndResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/AndResidue.java
+END
+SingleValueVar.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/SingleValueVar.java
+END
+Box.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/Box.java
+END
+CflowResidue.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/CflowResidue.java
+END
+AdviceFormal.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/residues/AdviceFormal.java
+END

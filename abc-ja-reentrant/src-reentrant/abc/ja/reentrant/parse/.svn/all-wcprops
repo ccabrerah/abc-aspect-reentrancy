@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2098/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/parse
+END
+header.parser
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/parse/header.parser
+END
+reentrant.parser
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/incubator/!svn/ver/2098/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/parse/reentrant.parser
+END

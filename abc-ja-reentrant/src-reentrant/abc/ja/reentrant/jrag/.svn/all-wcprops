@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/jrag
+END
+Declare.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/jrag/Declare.jrag
+END
+reentrant.ast
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/incubator/!svn/ver/2098/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/jrag/reentrant.ast
+END
+Pointcuts.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/jrag/Pointcuts.jrag
+END
+PointcutCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/incubator/!svn/ver/2100/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/jrag/PointcutCodegen.jrag
+END
+rewritePointcuts.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/incubator/!svn/ver/2240/reentrancy/abc-final/abc-ja-reentrant/src-reentrant/abc/ja/reentrant/jrag/rewritePointcuts.jrag
+END

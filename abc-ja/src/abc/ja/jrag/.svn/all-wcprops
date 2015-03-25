@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag
+END
+AspectJ.ast
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/AspectJ.ast
+END
+AspectJNameAnalysis.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/AspectJNameAnalysis.jrag
+END
+Declare.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/Declare.jrag
+END
+Patterns.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/Patterns.jrag
+END
+ImplicitVariables.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/ImplicitVariables.jrag
+END
+DeclarePrecedence.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/DeclarePrecedence.jrag
+END
+PointcutsCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/PointcutsCodegen.jrag
+END
+AspectJCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/AspectJCodegen.jrag
+END
+AdviceCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/AdviceCodegen.jrag
+END
+IntertypeJimple.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/IntertypeJimple.jrag
+END
+DeclareCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/DeclareCodegen.jrag
+END
+PatternsCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/PatternsCodegen.jrag
+END
+Debug.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/Debug.jrag
+END
+Pointcuts.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/Pointcuts.jrag
+END
+IntertypeJimple15.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/IntertypeJimple15.jrag
+END
+Privileged.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/Privileged.jrag
+END
+Advice.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/src/abc/ja/jrag/Advice.jrag
+END

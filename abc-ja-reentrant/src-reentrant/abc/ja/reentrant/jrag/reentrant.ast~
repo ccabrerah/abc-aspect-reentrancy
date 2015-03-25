@@ -1,0 +1,7 @@
+LCflowPointcutExpr : PointcutExpr ::= Pointcut:PointcutExpr;
+
+LCflowBelowPointcutExpr : PointcutExpr ::= Pointcut:PointcutExpr;
+
+LevelPointcutExpr : PointcutExpr ::=  <level:int>;
+
+ReentrancyPointcutAddOnExpr : PointcutExpr ::= Pointcut:PointcutExpr;

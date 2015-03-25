@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests
+END
+AspectStackUpdating.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests/AspectStackUpdating.java
+END
+BasicLevelDeploy.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests/BasicLevelDeploy.java
+END
+BasicLCflow.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests/BasicLCflow.java
+END
+BasicLevel.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests/BasicLevel.java
+END
+ManagedLevelChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests/ManagedLevelChange.java
+END
+BasicReentrancyControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests/BasicReentrancyControl.java
+END
+RunAll.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/test/src/abc/reentrant/test/tests/RunAll.java
+END

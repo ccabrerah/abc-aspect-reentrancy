@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt
+END
+DependentAdviceFlowInsensitiveAnalysis.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/DependentAdviceFlowInsensitiveAnalysis.java
+END
+DependentAdviceQuickCheck.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/weaving/weaver/depadviceopt/DependentAdviceQuickCheck.java
+END

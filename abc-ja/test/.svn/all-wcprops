@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test
+END
+Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test/Test.java
+END
+Test01.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test/Test01.java
+END
+FieldsPrivate.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test/FieldsPrivate.java
+END
+FieldPatterns.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test/FieldPatterns.java
+END
+FieldMods.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test/FieldMods.java
+END
+MemberPatterns.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test/MemberPatterns.java
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja/test/.cvsignore
+END

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast
+END
+DAExtFactory_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DAExtFactory_c.java
+END
+DADelFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DADelFactory.java
+END
+DADelFactory_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DADelFactory_c.java
+END
+DAAspectDecl.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DAAspectDecl.java
+END
+NameExtension.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/NameExtension.java
+END
+DAAspectDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DAAspectDecl_c.java
+END
+DANodeFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DANodeFactory.java
+END
+AdviceNameAndParams.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/AdviceNameAndParams.java
+END
+DANodeFactory_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DANodeFactory_c.java
+END
+AdviceNameAndParams_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/AdviceNameAndParams_c.java
+END
+DAAdviceDecl.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DAAdviceDecl.java
+END
+DAAdviceDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DAAdviceDecl_c.java
+END
+AdviceDependency.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/AdviceDependency.java
+END
+AdviceName.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/AdviceName.java
+END
+AdviceDependency_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/AdviceDependency_c.java
+END
+DAExtFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/DAExtFactory.java
+END
+AdviceName_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/da/ast/AdviceName_c.java
+END

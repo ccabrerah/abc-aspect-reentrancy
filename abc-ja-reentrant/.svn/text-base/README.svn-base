@@ -1,0 +1,19 @@
+Before using ant to compile 'abc-ja-reentrant', 
+please do a 'ANT_OPTS="-Xmx512m ant jars" in directories: ../abc, ../abc-ja and ../abc-ja-exts.
+
+-Build targets-
+
+ANT_OPTS="-Xmx512m" ant jars :  creates 'lib/abc-ja-reentrant-complete.jar' and 'lib/reentrant-runtime.jar' 
+
+ANT_OPTS="-Xmx512m" ant run-tests :  runs included tests. Depends on 'jars' build targets
+
+
+-Usage-
+
+  java -jar abc-ja-reentrant-complete.jar [options]
+
+Same options as the regular abc compiler.
+Be sure to include 'reentrant-runtime.jar' in the classpath when compiling and
+running programs.
+
+  java -jar abc-ja-reentrant-complete.jar -cp reentrant-runtime.jar [options]

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/ra/visit
+END
+GenerateNormalTMFromRelationalTM.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/ra/visit/GenerateNormalTMFromRelationalTM.java
+END
+AddFieldsAndMethods.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/ra/visit/AddFieldsAndMethods.java
+END
+AroundReplacer.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/ra/visit/AroundReplacer.java
+END
+GenerateTracematch.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/ra/visit/GenerateTracematch.java
+END
+RegexShuffle.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/ra/visit/RegexShuffle.java
+END
+SymbolCollector.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/ra/visit/SymbolCollector.java
+END

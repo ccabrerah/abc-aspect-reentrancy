@@ -1,0 +1,334 @@
+/* abc - The AspectBench Compiler
+ * Copyright (C) 2008 Pavel Avgustinov
+ * Copyright (C) 2008 Torbjorn Ekman
+ * Copyright (C) 2008 Julian Tibble
+ *
+ * This compiler is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This compiler is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this compiler, in the file LESSER-GPL;
+ * if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+import abc.weaving.aspectinfo.*;
+import abc.weaving.aspectinfo.MethodCategory;
+
+aspect AspectJCodegen {
+
+  public static GlobalAspectInfo ASTNode.globalAspectInfo() {
+    return abc.main.Main.v().getAbcExtension().getGlobalAspectInfo();
+  }
+
+  syn lazy AbcClass TypeDecl.abcClass() {
+    throw new InternalCompilerError(
+        "Trying to get an abcClass() from a non-reftype");
+  }
+  eq ClassDecl.abcClass() = AbcFactory.AbcClass(getSootClassDecl());
+  eq InterfaceDecl.abcClass() = AbcFactory.AbcClass(getSootClassDecl());
+  syn lazy AbcType TypeDecl.abcType() = AbcFactory.AbcType(getSootType());
+
+  public int MethodDecl.category = MethodCategory.NORMAL;
+  refine EmitJimple public void MethodDecl.jimplify2() {
+    EmitJimple.MethodDecl.jimplify2();
+    MethodCategory.register(sootMethod(), category);
+    if (category == MethodCategory.ACCESSOR_GET
+        || category == MethodCategory.ACCESSOR_SET) {
+      IntertypeFieldDeclaration source =
+        (IntertypeFieldDeclaration) hostType().getAccessorSource(this);
+
+      SootFieldRef sfr;
+      if (source.hostType().isInterfaceDecl()) {
+        // create a fake field (if ITD field introduced on an interface)
+        SootField sf = new SootField(
+          source.introducedName(),
+          source.type().getSootType(),
+          source.sootTypeModifiers()
+        );
+
+        source.hostType().getSootClassDecl().addField(sf);
+        MethodCategory.registerRealNameAndClass(
+          sf,
+          source.sootTypeModifiers(),
+          source.name(),
+          source.hostType().abcClass()
+        );
+
+        abc.ja.CompileSequence cs =
+          (abc.ja.CompileSequence)
+            abc.main.Main.v().getAbcExtension().getCompileSequence();
+        cs.registerFakeField(sf);
+  
+        sfr = sf.makeRef();
+      } else {
+        sfr = soot.Scene.v().makeFieldRef(
+          source.hostType().getSootClassDecl(),
+          source.introducedName(),
+          source.type().getSootType(),
+          source.isStatic()
+        );
+      }
+
+      if (category == MethodCategory.ACCESSOR_GET)
+        MethodCategory.registerFieldGet(AbcFactory.FieldSig(sfr),
+                                        AbcFactory.MethodSig(sootMethod()));
+      if (category == MethodCategory.ACCESSOR_SET)
+        MethodCategory.registerFieldSet(AbcFactory.FieldSig(sfr),
+                                        AbcFactory.MethodSig(sootMethod()));
+    }
+  }
+  public int ConstructorDecl.category = MethodCategory.NORMAL;
+  refine EmitJimple public void ConstructorDecl.jimplify2() {
+    EmitJimple.ConstructorDecl.jimplify2();
+    if(generate())
+      MethodCategory.register(sootMethod(), category);
+  }
+
+  refine IntertypeMethodCodegeneration eq IntertypeMethodDecl.createAspectMethod() {
+    MethodDecl m = IntertypeMethodCodegeneration.IntertypeMethodDecl.createAspectMethod();
+    m.category = MethodCategory.INTERTYPE_METHOD_SOURCE;
+    return m;
+  }
+  refine IntertypeMethodCodegeneration public MethodDecl IntertypeMethodDecl.createDelegateMethod(MethodDecl aspectMethod) {
+    MethodDecl m = IntertypeMethodCodegeneration.IntertypeMethodDecl.createDelegateMethod(aspectMethod);
+    m.category = MethodCategory.INTERTYPE_METHOD_DELEGATOR;
+    return m;
+  }
+  /*
+  refine IntertypeMethodCodegeneration eq MethodDecl.createSuperDispatchDelegate(TypeDecl qualifierType) {
+    MethodDecl m = IntertypeMethodCodegeneration.MethodDecl.createSuperDispatchDelegate(qualifierType);
+    m.category = MethodCategory.INTERTYPE_SPECIAL_CALL_DELEGATOR;
+      return m;
+  }
+  refine IntertypeMethodCodegeneration public MethodDecl IntertypeMethodDecl.createAbstractMethod() {
+    MethodDecl m = IntertypeMethodCodegeneration.IntertypeMethodDecl.createAbstractMethod();
+    m.category = MethodCategory.INTERTYPE_METHOD_SOURCE;
+    return m;
+  }*/
+
+  refine IntertypeConstructorCodegeneration public ConstructorDecl IntertypeConstructorDecl.createDelegate() {
+    ConstructorDecl c = IntertypeConstructorCodegeneration.IntertypeConstructorDecl.createDelegate();
+    c.category = MethodCategory.INTERTYPE_CONSTRUCTOR_DELEGATOR;
+    return c;
+  }
+  refine IntertypeConstructorCodegeneration public MethodDecl IntertypeConstructorDecl.createBodyDelegate() {
+    MethodDecl m = IntertypeConstructorCodegeneration.IntertypeConstructorDecl.createBodyDelegate();
+    m.category = MethodCategory.INTERTYPE_CONSTRUCTOR_BODY;
+    return m;
+  }
+
+  refine IntertypeFieldCodegeneration protected MethodDecl BodyDecl.buildAccessor(Modifiers modifiers, TypeDecl type, 
+                                                             String name, List parameters, Opt body, TypeDecl typeDecl) {
+    MethodDecl m = IntertypeFieldCodegeneration.BodyDecl.buildAccessor(modifiers, type, name, parameters, body, typeDecl);
+    m.category = MethodCategory.INTERTYPE_INITIALIZER_DELEGATE;
+    return m;
+  }
+  refine IntertypeFieldCodegeneration public MethodDecl IntertypeFieldDeclaration.createInit() {
+    MethodDecl m = IntertypeFieldCodegeneration.IntertypeFieldDeclaration.createInit();
+    m.category = MethodCategory.INTERTYPE_FIELD_INITIALIZER;
+    return m;
+  }
+  
+  refine IntertypeFieldCodegeneration public MethodDecl IntertypeFieldDeclaration.createGetter() {
+    MethodDecl m  = IntertypeFieldCodegeneration.IntertypeFieldDeclaration.createGetter();
+    m.category = MethodCategory.ACCESSOR_GET;
+    return m;
+  }
+  refine IntertypeFieldCodegeneration public MethodDecl IntertypeFieldDeclaration.createSetter() {
+    MethodDecl m  = IntertypeFieldCodegeneration.IntertypeFieldDeclaration.createSetter();
+    m.category = MethodCategory.ACCESSOR_SET;
+    return m;
+  }
+  refine IntertypeFieldCodegeneration public MethodDecl IntertypeFieldDeclaration.createInterfaceGetter() {
+    MethodDecl m  = IntertypeFieldCodegeneration.IntertypeFieldDeclaration.createInterfaceGetter();
+    m.category = MethodCategory.ACCESSOR_GET;
+    return m;
+  }
+  refine IntertypeFieldCodegeneration public MethodDecl IntertypeFieldDeclaration.createInterfaceSetter() {
+    MethodDecl m  = IntertypeFieldCodegeneration.IntertypeFieldDeclaration.createInterfaceSetter();
+    m.category = MethodCategory.ACCESSOR_SET;
+    return m;
+  }
+
+
+  refine EmitJimple public void Program.jimplify1() {
+    // clear the set of extended classes
+    // each class affected by a declare parents will register itself
+    globalAspectInfo().setExtendedClasses(new HashSet());
+    for(Iterator iter = compilationUnitIterator(); iter.hasNext(); ) {
+      CompilationUnit u = (CompilationUnit)iter.next();
+      if(u.weavable())
+        u.jimplify1phase1();
+    }
+    for(Iterator iter = compilationUnitIterator(); iter.hasNext(); ) {
+      CompilationUnit u = (CompilationUnit)iter.next();
+      if(u.weavable())
+        u.jimplify1phase2();
+    }
+  }
+
+  refine EmitJimple public void Program.jimplify2() {
+    for(Iterator iter = compilationUnitIterator(); iter.hasNext(); ) {
+      CompilationUnit u = (CompilationUnit)iter.next();
+      if(u.weavable())
+        u.jimplify2();
+    }
+  }
+
+  refine EmitJimple eq TypeDecl.getSootClassDecl() {
+    if(compilationUnit().fromSource()) {
+      return sootClass();
+    }
+    else {
+      if(Program.verbose())
+        System.out.println("Loading .class file " + jvmName());
+      if(compilationUnit().weavable()) {
+        SootClass sc = Scene.v().loadClass(jvmName(), SootClass.BODIES);
+        sc.setApplicationClass();
+        return sc;
+      }
+      else {
+        SootClass sc = Scene.v().loadClass(jvmName(), SootClass.SIGNATURES);
+        sc.setLibraryClass();
+        return sc;
+      }
+    }
+  }
+
+  public void ClassDecl.jimplify1phase1() {
+    super.jimplify1phase1();
+    AbcClass abc = abcClass();
+    globalAspectInfo().addWeavableClass(abc);
+    // register types affected by a declare parents introduction
+    // in the global aspect info structure
+    if(affectedByDeclareParents())
+      globalAspectInfo().getExtendedClasses().add(getSootClassDecl());
+  }
+  
+  public void InterfaceDecl.jimplify1phase1() {
+    super.jimplify1phase1();
+    AbcClass abc = abcClass();
+    globalAspectInfo().addWeavableClass(abc);
+    // register types affected by a declare parents introduction
+    // in the global aspect info structure
+    if(affectedByDeclareParents())
+      globalAspectInfo().getExtendedClasses().add(getSootClassDecl());
+  }
+
+  public void AspectDecl.jimplify1phase1() {
+    super.jimplify1phase1();
+    Per perclause = hasPerClause() ? getPerClause().aspectInfo() : null;
+    globalAspectInfo().addAspect(
+      new Aspect(abcClass(), perclause, pos())
+    );
+  }
+
+  public abstract Per PerClause.aspectInfo();
+  public Per PerTarget.aspectInfo() {
+    return new abc.weaving.aspectinfo.PerTarget(
+      getPointcutExpr().pointcut(), pos()
+    );
+  }
+  public Per PerThis.aspectInfo() {
+    return new abc.weaving.aspectinfo.PerThis(
+      getPointcutExpr().pointcut(), pos()
+    );
+  }
+  public Per PerCflow.aspectInfo() {
+    return new abc.weaving.aspectinfo.PerCflow(
+      getPointcutExpr().pointcut(), pos()
+    );
+  }
+  public Per PerCflowBelow.aspectInfo() {
+    return new abc.weaving.aspectinfo.PerCflowBelow(
+      getPointcutExpr().pointcut(), pos()
+    );
+  }
+  public Per IsSingleton.aspectInfo() {
+    return new Singleton(pos());
+  }
+
+  
+  eq IntertypeMethodDecl.sootRef() {
+    ArrayList parameters = new ArrayList();
+    for(int i = 0; i < getNumParameter(); i++)
+      parameters.add(getParameter(i).type().getSootType());
+    SootMethodRef ref = Scene.v().makeMethodRef(
+      introducedType().getSootClassDecl(),
+      name(),
+      parameters,
+      type().getSootType(),
+      isStatic()
+    );
+    return ref;
+  }
+
+  public void IntertypeMethodDecl.jimplify2() {
+    // do not generate any code for an IntertypeMethodDecl
+    // weaving is done in the front-end
+  }
+
+  public void IntroducedMethodDecl.jimplify2() {
+    super.jimplify2();
+
+    // record the real modifiers, name, and declaring class, for introduced
+    // methods so that the pattern matcher can operate correctly
+    if (getITDBodyDecl() instanceof IntertypeMethodDecl)
+    {
+      IntertypeMethodDecl orig = (IntertypeMethodDecl) getITDBodyDecl();
+
+      AbcClass real_class = orig.hostType().abcClass();
+
+      MethodCategory.registerRealNameAndClass(
+        sootMethod(), orig.sootTypeModifiers(), orig.name(),
+        orig.hostType().abcClass(), orig.isStatic() ? 0 : 1, 0);
+    }
+    else if (getITDBodyDecl() instanceof IntertypeConstructorDecl)
+    {
+      IntertypeConstructorDecl orig =
+        (IntertypeConstructorDecl) getITDBodyDecl();
+
+      MethodCategory.registerRealNameAndClass(sootMethod(),
+        orig.sootTypeModifiers(), "<init>", orig.hostType().abcClass(), 1, 0);
+    }
+  }
+
+  public void IntroducedFieldDeclaration.jimplify2() {
+    super.jimplify2();
+
+    FieldDeclaration orig = (FieldDeclaration)
+      aspectType().memberFields(getOriginalName()).iterator().next();
+    int mods = orig.sootTypeModifiers();
+
+    // record the real modifiers, name, and declaring class, for introduced
+    // fields so that the pattern matcher can operate correctly
+    MethodCategory.registerRealNameAndClass(
+      sootRef().resolve(), mods, getOriginalName(), aspectType().abcClass());
+  }
+
+  public Formal ParameterDeclaration.formal() {
+    return new Formal(
+        AbcFactory.AbcType(type().getSootType()),
+        name(),
+        pos()
+    );
+  }
+
+  public void IntertypeMethodDecl.jimplify1phase2() {
+    // do not generate any code for an IntertypeMethodDecl
+    // weaving is done in the front-end
+  }
+  
+  // Build a polyglot Position that corresponds to the current position
+  public polyglot.util.Position ASTNode.pos() {
+    return new polyglot.util.Position(sourceFile(), lineNumber());
+  }
+}

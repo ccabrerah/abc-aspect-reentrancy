@@ -1,0 +1,170 @@
+/* abc - The AspectBench Compiler
+ * Copyright (C) 2008 Pavel Avgustinov
+ * Copyright (C) 2008 Torbjorn Ekman
+ * Copyright (C) 2008 Julian Tibble
+ *
+ * This compiler is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This compiler is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this compiler, in the file LESSER-GPL;
+ * if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+aspect Advice
+{
+  eq AdviceDecl.getBlock().returnType() = returnType();
+  syn TypeDecl AdviceDecl.returnType() = getAdviceSpec().returnType();
+
+  inh TypeDecl AdviceSpec.typeVoid();
+  syn TypeDecl AdviceSpec.returnType() = typeVoid();
+  eq AroundSpec.returnType() = getTypeAccess().type();
+
+
+  eq AdviceDecl.getAdviceSpec().lookupVariable(String name) {
+    SimpleSet v = getAdviceSpec().localLookupVariable(name);
+    if(!v.isEmpty()) return v;
+    v = getAdviceSpec().lookupAfterVariable(name);
+    if(!v.isEmpty()) return v;
+    return lookupVariable(name);
+  }
+  eq AdviceDecl.getBlock().lookupVariable(String name) {
+    SimpleSet v = getAdviceSpec().localLookupVariable(name);
+    if(!v.isEmpty()) return v;
+    v = getAdviceSpec().lookupAfterVariable(name);
+    if(!v.isEmpty()) return v;
+    return lookupVariable(name);
+  }
+  eq AdviceDecl.getPointcutExpr().lookupVariable(String name) {
+    SimpleSet v = getAdviceSpec().localLookupVariable(name);
+    if(!v.isEmpty()) return v;
+    return lookupVariable(name);
+  }
+  syn SimpleSet AdviceSpec.localLookupVariable(String name) {
+    for(int i = 0; i < getNumParameter(); i++)
+      if(getParameter(i).name().equals(name))
+        return SimpleSet.emptySet.add(getParameter(i));
+    return localLookupImplicitVariable(name);
+  }
+  syn SimpleSet AdviceSpec.lookupAfterVariable(String name) =
+    SimpleSet.emptySet;
+  eq AfterReturningSpec.lookupAfterVariable(String name) {
+    if(hasReturnParameter() &&
+       getReturnParameter().name().equals(name))
+      return SimpleSet.emptySet.add(getReturnParameter());
+    return SimpleSet.emptySet;
+  }
+  eq AfterThrowingSpec.lookupAfterVariable(String name) {
+    if(hasExceptionParameter() &&
+       getExceptionParameter().name().equals(name))
+      return SimpleSet.emptySet.add(getExceptionParameter());
+    return SimpleSet.emptySet;
+  }
+  inh SimpleSet AdviceDecl.lookupVariable(String name);
+
+  // UnreachableStatements.jrag
+  eq AdviceDecl.getBlock().reachable() = true;
+
+  eq AdviceDecl.getModifiers().mayBeSynchronized() = true;
+  eq AdviceDecl.getModifiers().mayBeStrictfp() = true;
+
+  eq AdviceDecl.getException().nameType() = NameType.TYPE_NAME;
+  
+  eq AdviceSpec.getParameter(int index).isMethodParameter() = true;
+  eq AdviceSpec.getParameter(int index).isConstructorParameter() = false;
+  eq AdviceSpec.getParameter(int index).isExceptionHandlerParameter() = false;
+  eq AdviceSpec.getParameter(int index).isPointcutVariable() = true;
+  eq AdviceSpec.getParameter(int index).nameType() = NameType.TYPE_NAME;
+
+  eq AfterReturningSpec.getReturnParameter().isMethodParameter() = true;
+  eq AfterReturningSpec.getReturnParameter().isConstructorParameter() = false;
+  eq AfterReturningSpec.getReturnParameter().isExceptionHandlerParameter() = false;
+  eq AfterReturningSpec.getReturnParameter().nameType() = NameType.TYPE_NAME;
+
+  eq AfterThrowingSpec.getExceptionParameter().isMethodParameter() = true;
+  eq AfterThrowingSpec.getExceptionParameter().isConstructorParameter() = false;
+  eq AfterThrowingSpec.getExceptionParameter().isExceptionHandlerParameter() = false;
+  eq AfterThrowingSpec.getExceptionParameter().nameType() = NameType.TYPE_NAME;
+
+  eq AroundSpec.getTypeAccess().nameType() = NameType.TYPE_NAME;
+
+
+  //
+  // semantic checks for proceed-calls
+  //
+
+  eq Proceed.type() = aroundSpec() != null ? aroundSpec().returnType()
+                                           : unknownType();
+
+  public void Proceed.typeCheck() {
+    AroundSpec spec = aroundSpec();
+    if (spec == null)
+      error("Can only use proceed within around advice");
+    else if (spec.getNumAroundParameter() != getNumArg()) {
+      error("Proceed called with the wrong number of arguments");
+    } else {
+      for (int i = 0; i < getNumArg(); i++) {
+        TypeDecl exprType = getArg(i).type();
+        TypeDecl parmType = spec.getAroundParameter(i).type();
+
+        if (!exprType.methodInvocationConversionTo(parmType)
+            && !exprType.isUnknown() && !parmType.isUnknown())
+        {
+            error("Expression " + getArg(i) + " of type " + exprType.typeName()
+            + " is not compatible with the proceed parameter type " +
+            parmType.typeName());
+        }
+      }
+    }
+  }
+  
+  // Pointcuts attached to advice should bind the variables the advice declares
+  public void AdviceDecl.typeCheck() {
+    AdviceSpec spec = getAdviceSpec();
+    for(int i = 0; i < spec.getNumParameter(); i++) {
+      int bindings = getPointcutExpr().binds(spec.getParameter(i).name());
+
+      if(bindings > 1) {
+        error("Advice formal " + spec.getParameter(i).name() + " is bound " +
+              "multiple times in pointcut.");
+      } else if(bindings == 0) {
+        error("Advice formal " + spec.getParameter(i).name() +
+              " is not bound " + "in pointcut.");
+      }		
+    }
+    AroundSpec aroundspec = spec.aroundSpec();
+    if (aroundspec != null && !aroundspec.getTypeAccess().type().isVoid()
+        && getBlock().canCompleteNormally())
+      error("the body of non void around advice must return a value");
+  }
+
+  // Pointcut decls should bind their variables, unless they're marked abstract.
+  public void PointcutDecl.typeCheck() {
+    if(!isAbstract()) {
+      for(int i = 0; i < getNumParameter(); i++) {
+        int bindings = getPointcutExpr().binds(getParameter(i).name());
+        
+        if(bindings == 0) {
+          error("Concrete pointcut " + hostType().typeName() + "." + name() +
+                " should bind its formal argument " + getParameter(i).name());
+        } else if(bindings > 1) {
+          error("Pointcut " + hostType().typeName() + "." + name() +
+                " binds formal argument " + getParameter(i).name() +
+                " multiple times.");
+        }
+      }
+    } else if(isPrivate()) {
+      error("Pointcut " + hostType().typeName() + "." + name() +
+            " cannot be both abstract and private.");
+    }
+    overrideParameterCheck();
+  }
+}

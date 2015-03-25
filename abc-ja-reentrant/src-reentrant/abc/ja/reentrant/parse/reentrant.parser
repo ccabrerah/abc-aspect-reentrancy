@@ -1,0 +1,53 @@
+PointcutExpr basic_pointcut_expr =
+        PC_LCFLOW LPAREN pointcut_expr.internal_pc RPAREN
+        {:
+            ParserTrace.parserTrace("L-CFLOW pointcut");
+            return new LCflowPointcutExpr(internal_pc);
+        :}
+        | PC_LCFLOWBELOW LPAREN pointcut_expr.internal_pc RPAREN
+        {:
+            ParserTrace.parserTrace("L-CFLOWBELOW pointcut");
+            return new LCflowBelowPointcutExpr(internal_pc);
+        :}
+	| PC_LEVEL.lev LPAREN INTEGER_LITERAL.l RPAREN
+        {:
+            ParserTrace.parserTrace("LEVEL pointcut");
+            LevelPointcutExpr pc = new LevelPointcutExpr();
+            pc.setlevel(Integer.parseInt(l));
+            return pc;
+        :}
+        | PC_GCFLOW LPAREN pointcut_expr.internal_pc RPAREN
+        {:
+            ParserTrace.parserTrace("GCFLOW pointcut");
+            CflowPointcutExpr pc = new CflowPointcutExpr(internal_pc);
+            pc.declaredAsCflow = false;
+            return pc;
+        :}
+        | PC_GCFLOWBELOW LPAREN pointcut_expr.internal_pc RPAREN
+        {:
+            ParserTrace.parserTrace("GCFLOWBELOW pointcut");
+            CflowBelowPointcutExpr pc = new CflowBelowPointcutExpr(internal_pc);
+            pc.declaredAsCflow = false;
+            return pc;
+        :}
+
+    ;
+
+AspectDecl aspect_declaration =
+      ONLEVEL INTEGER_LITERAL.l modifiers.a? ASPECT.n IDENTIFIER
+                         super.c? interfaces.d?  perclause_opt.f
+                         aspect_body.g
+       {:
+
+
+
+           ParserTrace.parserTrace( "aspect declaration: " +
+                                               IDENTIFIER.value);
+
+           AspectDecl aspectDecl = new AspectDecl( new Modifiers(a), IDENTIFIER, g, c, d, f);
+
+           aspectDecl.level = Integer.parseInt(l) -1 ;
+
+	  return aspectDecl;
+       :}
+  ;

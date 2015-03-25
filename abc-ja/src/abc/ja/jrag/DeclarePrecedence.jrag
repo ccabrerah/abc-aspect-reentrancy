@@ -1,0 +1,156 @@
+/* abc - The AspectBench Compiler
+ * Copyright (C) 2008 Pavel Avgustinov
+ * Copyright (C) 2008 Torbjorn Ekman
+ * Copyright (C) 2008 Julian Tibble
+ *
+ * This compiler is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This compiler is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this compiler, in the file LESSER-GPL;
+ * if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+aspect DeclarePrecedence {
+  //
+  // Compute precedence relation
+  //
+
+  // Need to navigate between aspects
+  inh lazy AspectDecl DeclarePrecedence.firstAspect();
+  syn lazy AspectDecl AspectDecl.nextAspect();
+
+  eq Program.getCompilationUnit().firstAspect() = nextAspectBelow(0);
+  eq AspectDecl.nextAspect() = getModifiers().nextAspectRight();
+
+
+  // (internal)
+  syn AspectDecl ASTNode.nextAspectBelow(int start);
+  syn AspectDecl ASTNode.nextAspectRight();
+
+  eq AspectDecl.nextAspectBelow(int start) =
+    start == 0 ? this : super.nextAspectBelow(start);
+
+  eq ASTNode.nextAspectBelow(int start)
+  {
+    for (int i = start; i < getNumChild(); i++) {
+      AspectDecl next = getChild(i).nextAspectBelow(0);
+      if (next != null)
+        return next;
+    }
+    return null;
+  }
+
+  eq Program.nextAspectRight() = null;
+  eq ASTNode.nextAspectRight()
+  {
+    int index = getParent().getIndexOfChild(this);
+    AspectDecl next = getParent().nextAspectBelow(index + 1);
+
+    if (next != null)
+      return next;
+    return getParent().nextAspectRight();
+  }
+
+  // In the precedence map, A has precedence over B
+  //   iff B is in map.get(A)
+  public void DeclarePrecedence.updatePrecedenceMap()
+  {
+    // based on original implementation by Aske Simon Christensen
+
+    Map precedence = abc.main.Main.v().getAbcExtension()
+                        .getGlobalAspectInfo().getPrecedenceRelation();
+
+    // The aspects that have matched previous patterns
+    Set passed = new HashSet();
+
+    // Iterate through the list of patterns
+    for (int i = 0; i < getNumPattern(); i++) {
+      // The aspects that match the current pattern
+      Set current = new HashSet();
+
+      // Iterate through aspects
+      AspectDecl a = firstAspect();
+      while (a != null) {
+        String aspectName = a.fullName();
+
+        if (!precedence.containsKey(aspectName))
+          precedence.put(aspectName, new HashSet());
+
+        if (matchPattern(i, a)) {
+          // It is an error if an aspect is matched by more than one pattern
+          if (passed.contains(aspectName))
+            error("Aspect " + aspectName + " is matched by more than " +
+                  "one pattern on the precedence list");
+
+          // Mark this aspect as being preceded by all passed aspects
+          Iterator pi = passed.iterator();
+          while (pi.hasNext()) {
+            String prev = (String) pi.next();
+            ((Set) precedence.get(prev)).add(aspectName);
+          }
+
+          // Add it to the current set
+          current.add(aspectName);
+        }
+        a = a.nextAspect();
+      }
+      passed.addAll(current);
+    }
+  }
+
+  // a *-pattern in a declare-precedence statement has a
+  // different meaning to normal: it does not mean "everything"
+  // but "everything that does not match one of the other patterns"
+  refine DeclarePrecedenceNameAnalysis
+  eq DeclarePrecedence.matchPattern(int i, TypeDecl typeDecl)
+  {
+    if (!getPattern(i).isStar())
+      return getPattern(i).matchesType(typeDecl);
+
+    for (int j = 0; j < getNumPattern(); j++)
+      if (i != j && getPattern(i).matchesType(typeDecl))
+          return false;
+    return true;
+  }
+
+
+
+  syn SimpleSet SimpleNamePattern.decls() = lookupType(getPattern());
+  inh SimpleSet SimpleNamePattern.lookupType(String name);
+  inh TypeDecl SimpleNamePattern.unknownType();
+  eq SimpleNamePattern.type() = decls().size() == 1 ? (TypeDecl)decls().iterator().next() : unknownType();
+  
+  syn boolean Pattern.isTypeAccess() = false;
+  eq SimpleNamePattern.isTypeAccess() = !type().isUnknown();
+  eq ExplicitTypeNamePattern.isTypeAccess() = true;
+
+  refine DeclarePrecedenceNameAnalysis public void DeclarePrecedence.typeCheck()
+  {
+    DeclarePrecedenceNameAnalysis.DeclarePrecedence.typeCheck();
+    if (numStars() > 1)
+      error("multiple * patterns not allowed");
+
+    updatePrecedenceMap();
+  }
+
+  syn int DeclarePrecedence.numStars()
+  {
+    int num = 0;
+    for(int i = 0; i < getNumPattern(); i++)
+      if(getPattern(i).isStar())
+        num++;
+    return num;
+  }
+
+  syn boolean Pattern.isStar() = false;
+  eq SimpleNamePattern.isStar() = getPattern().equals("*");
+}

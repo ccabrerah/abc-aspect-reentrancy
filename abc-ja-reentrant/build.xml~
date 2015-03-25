@@ -1,0 +1,294 @@
+<!--
+ Targets for working from terminal window:
+       build (default) - generates java files and compiles them
+       clean           - removes all generated files and class files
+       jars            - creates jars and puts them on lib/
+       run-tests       - run tests
+       clean-tests     - remove files needed to run tests only
+
+  BUG: need to run 'ant build' in ../abc-ja the first time.
+-->
+<project name="AspectJ - Reentrancy control for aspects" default="build">
+
+<property file="ant.settings"/>
+<fail message="Please fix ant.settings" unless="abc-ja.loc"/>
+
+<property file="${abc-ja.loc}/ant.settings"/>
+<fail message="Please fix ${abc-ja.loc}/ant.settings" unless="abc.loc"/>
+
+<property file="${abc.loc}/ant.settings"/>
+<fail message="Please copy ant.settings.template to ant.settings, and set the variables in it."
+            unless="polyglot.loc"/>
+
+<!-- "package" is the directory where generated files will be stored -->
+<property name="package" value="abc.ja.reentrant.jrag"/>
+
+<!-- Arguments passed to runtests -->
+<property name="test.args" value=""/>
+<property name="test.pat" value=""/>
+
+<!-- "tools" is the directory where generators and libraries are located. -->
+<property name="tools" value="${frontend}/tools"/>
+
+<!-- "jflex" is an ant task class for the scanner generator in JFlex.jar -->
+<taskdef name="jflex" classname="JFlex.anttask.JFlexTask"
+                      classpath="${tools}/JFlex.jar"/>
+<!-- "beaver" is an ant task class for the parser generator in beaver.jar -->
+<taskdef name="beaver" classname="beaver.comp.run.AntTask"
+                       classpath="${abc-ja.loc}/tools/beaver.jar"/>
+<!-- "jastadd" is an ant task class in jastadd2.jar -->
+<taskdef name="jastadd" classname="jastadd.JastAddTask"
+                        classpath="${tools}/jastadd2.jar"/>
+
+<!-- run some basic tests -->
+<target name="run-tests" depends="jars,runtime-jar,just-run-tests"/>
+
+
+
+<target name="just-run-tests" depends="clean-tests">
+    <mkdir dir="${basedir}/test/classes"/>
+    
+    <echo message="Copying aspectj runtime classes..."/>
+    <mkdir dir="${basedir}/test/classes/org"/>
+    <copy todir="${basedir}/test/classes/org">
+      <fileset dir="${basedir}/../abc/runtime-classes/org"/>
+    </copy>
+  
+    <!-- compile JUnit tests(using the extended abc compiler!) -->
+    
+    
+    
+    <java jar="${basedir}/lib/abc-ja-reentrant-complete.jar" fork="true">
+        <arg line="-ext abc.ja.reentrant -cp ${libs.loc}/junit-4.7.jar:${basedir}/test/classes:${basedir}/lib/reentrant-runtime.jar -verbose -d ${basedir}/test/classes/"/>
+	<!--<arg line=" ${basedir}/test/src/abc/reentrant/test/tests/RunAll.java"/>
+	<arg line=" ${basedir}/test/src/abc/reentrant/test/tests/BasicLevel.java"/>
+	<arg line=" ${basedir}/test/src/abc/reentrant/test/tests/BasicReentrancyControl.java"/>
+	<arg line=" ${basedir}/test/src/abc/reentrant/test/tests/BasicLCflow.java"/>
+	<arg line=" ${basedir}/test/src/abc/reentrant/test/tests/BasicLevelDeploy.java"/>
+	<arg line=" ${basedir}/test/src/abc/reentrant/test/tests/AspectStackUpdating.java"/>
+        <arg line=" ${basedir}/test/src/abc/reentrant/test/tests/ManagedLevelChange.java"/> -->
+        <arg line=" ${basedir}/test/src/abc/reentrant/test/tests/DynamicProceed.java"/>
+    </java>
+    
+    
+    <!-- run tests -->
+    <java classname="abc.reentrant.test.tests.RunAll">
+        <classpath>
+	    <pathelement path="${basedir}/test/classes"/>
+	    <pathelement location="${basedir}/lib/reentrant-runtime.jar"/>
+	    <pathelement location="${basedir}/../libs/junit-4.7.jar"/>
+	    <!-- <pathelement location="${basedir}/../libs/junit-dep-4.7.jar"/> -->
+        </classpath>
+    </java>
+
+</target>
+
+
+
+<target name="clean-tests">
+    <delete quiet="false">
+      <fileset dir="${basedir}/test/classes" includes="**/*"/>
+    </delete>
+</target>
+
+<target name="runtime-jar" depends="build-runtime-reentrant">
+    <jar destfile="${basedir}/lib/reentrant-runtime.jar"
+       basedir="${basedir}/runtime-classes"
+       includes="**/*" 
+    />
+        
+</target>
+
+<target name="build-runtime-reentrant" depends="build">
+        
+    <javac debug="true" fork="true" memoryMaximumSize="256M" destdir="runtime-classes">
+        <classpath>
+            <pathelement location="${basedir}/classes"/>
+        </classpath>
+        <src path="${basedir}/runtime-src"/>
+	<src path="${abc.loc}/runtime-src"/>
+    </javac>
+
+</target>
+
+<!-- compile sources -->
+<target name="build" depends="gen">
+        <ant dir="${abc-ja-exts.loc}" />
+        <mkdir dir="${basedir}/classes"/>
+        <!-- compile sources compiler="jikes" nowarn="true" -->
+        <javac debug="true"
+               fork="true" memoryMaximumSize="512M" destdir="classes">
+	    <classpath>
+              <pathelement location="${polyglot.loc}"/>
+              <pathelement location="${abc.loc}/classes"/>
+              <pathelement location="${polyglot.cupclasses.loc}"/>
+              <pathelement location="${soot.loc}"/>
+              <pathelement location="${jasmin.loc}"/>
+              <pathelement location="${xact.loc}"/>
+              <pathelement location="${abc.loc}/ajc-harness/lib/abc-testing-ajc-part.jar"/>
+              <pathelement location="${abc.loc}/testing-classes"/>
+	      <!-- <pathelement location="${abc.loc}/runtime-classes"/>  not necessary -->
+              <pathelement location="${abc-ja.loc}/classes"/>
+	      <pathelement location="${abc-ja-exts.loc}/classes"/>
+	      <pathelement location="${basedir}"/>
+            </classpath>
+                <src path="${basedir}/src-reentrant"/>
+                <src path="${basedir}/generated"/>
+        </javac>
+	
+	
+</target>
+	
+<!-- generate compiler source files -->
+<target name="gen" depends="reentrant-parser,reentrant-jrag">
+  <!-- copy library files-->
+  <copy todir="${basedir}/generated/beaver" preservelastmodified="true">
+    <fileset dir="${frontend}/beaver"/>
+  </copy>
+</target>
+
+
+<target name="reentrant-jrag">
+  <!-- create AST node types and weave aspect modules -->
+        <echo message="Generating to ${basedir}/generated..."/>
+        <mkdir dir="${basedir}/generated"/>
+	<jastadd package="abc.ja.reentrant.jrag" rewrite="true"
+                beaver="true" noVisitCheck="true"
+                noCacheCycle="true" noComponentCheck="true"
+                outdir="${basedir}/generated" lazyMaps="true"
+                suppressWarnings="false" parentInterface="false">
+		<fileset dir="${frontend}">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+ 			<exclude name="BytecodeAttributes.jrag"/>
+			<exclude name="BytecodeDescriptor.jrag"/>
+			<exclude name="BytecodeReader.jrag"/>
+		</fileset>
+		<fileset dir="${frontend1.5}">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+		</fileset>
+		<fileset dir="${javabackend}">
+			<include name="InnerClasses.jrag"/>
+			<include name="Transformations.jrag"/>
+			<include name="Java2Rewrites.jrag"/>
+		</fileset>
+		<fileset dir="${backend1.5}">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+		</fileset>
+		<fileset dir="${itds}">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+      <exclude name="JastAdd.*"/>
+      <exclude name="DeclarePrecedence.ast"/>
+      <exclude name="DeclareParents.ast"/>
+      <exclude name="Glue.jrag"/>
+		</fileset>
+		<fileset dir="${backend}">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+		</fileset>
+		<fileset dir="${abc-ja.loc}/src/abc/ja/jrag">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+		</fileset>
+		<fileset dir="${abc-ja-exts.loc}/src-eaj/abc/ja/eaj/jrag">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+		</fileset>
+		<fileset dir="${abc-ja-exts.loc}/src-tm/abc/ja/tm/jrag">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+		</fileset>
+		<fileset dir="${basedir}/src-reentrant/abc/ja/reentrant/jrag">
+			<include name="**/*.ast"/>
+			<include name="**/*.jrag"/>
+			<include name="**/*.jadd"/>
+		</fileset>
+  </jastadd>
+</target>
+
+<target name="reentrant-parser">
+  <property name="reentrant-parserdir" location="${basedir}/generated/abc/ja/reentrant/parse"/>
+  <mkdir dir="${reentrant-parserdir}"/>
+  
+  <!-- generate the parser phase 1, create a full .lalr
+     - specification from fragments -->
+  <concat destfile="${reentrant-parserdir}/JavaParser.all" binary="true" force="no">
+    <filelist dir=".">
+      <file name="src-reentrant/abc/ja/reentrant/parse/header.parser"/>
+    </filelist>
+    <filelist dir="${frontend}">
+      <file name="parser/java14.parser"/>
+    </filelist>
+    <fileset dir="${frontend1.5}">
+      <include name="*.parser"/>
+    </fileset>
+    <filelist dir="${abc-ja.loc}">
+      <file name="src/abc/ja/parse/errorproductions.parser"/>
+      <file name="src/abc/ja/parse/aspectj.parser"/>
+    </filelist>
+    <filelist dir="${abc-ja-exts.loc}">
+      <file name="src-eaj/abc/ja/eaj/parse/eaj.parser"/>
+      <file name="src-tm/abc/ja/tm/parse/tm.parser"/>
+    </filelist>
+    <filelist dir="${basedir}">
+      <file name="src-reentrant/abc/ja/reentrant/parse/reentrant.parser"/>
+    </filelist>
+  </concat>
+  <!-- generate the parser phase 2, translating .lalr to .beaver -->
+	<java classpath="${tools}/JastAddParser.jar:${tools}/beaver-rt.jar"
+              classname="Main" fork="true" dir="${reentrant-parserdir}">
+		<arg line="JavaParser.all JavaParser.beaver"/>
+	</java>
+  <!-- generate the parser phase 3, translating .beaver to .java -->
+  <beaver file="${reentrant-parserdir}/JavaParser.beaver" terminalNames="yes"
+          compress="no" useSwitch="yes"/>
+</target>
+
+<target name="clean" depends="clean-tests">
+    <delete quiet="true">
+      <fileset dir="${basedir}/generated" includes="**/*"/>
+      <fileset dir="${basedir}/classes"   includes="**/*"/>
+      <fileset dir="${basedir}/lib" includes="*.jar"/>
+    </delete>
+</target>
+
+<target name="clobber" depends="clean">
+  <ant dir="${abc-ja.loc}" target="clobber"/>
+</target>
+	
+<target name="jars" depends="build">
+  <antcall target="base-jars"/>
+  <antcall target="runtime-jar"/>
+</target>
+
+<target name="base-jars" depends="build">
+    <ant dir="${abc-ja.loc}" target="jars"/>
+    <ant dir="${abc-ja-exts.loc}" target="jars"/>
+    <mkdir dir="${basedir}/lib"/>
+    <jar destfile="${abc.loc}/lib/abc-ja-reentrant.jar" basedir="${basedir}/classes" includes="**/*.class" />
+    <jar destfile="${basedir}/lib/abc-ja-reentrant.jar" basedir="${basedir}/classes" includes="**/*.class" />
+    <copy file="${abc-ja-exts.loc}/lib/abc-ja-exts-complete.jar" tofile="${basedir}/lib/abc-ja-reentrant-complete.jar"/>
+    <jar destfile="${basedir}/lib/abc-ja-reentrant-complete.jar" update="true" basedir="${basedir}/classes" includes="**/*.class"/>
+</target>
+
+<!--<target name="run" depends="jars">
+    <echo message="Compiling ${hname}..."/>
+    <java jar="${basedir}/lib/abc-ja-reentrant-complete.jar" fork="true">
+        <arg line="-ext abc.ja.reentrant -verbose -d ${basedir}/test/classes/ ${basedir}/test/src/${classname}.java "/>
+    </java>
+  
+</target>-->
+
+</project>
+

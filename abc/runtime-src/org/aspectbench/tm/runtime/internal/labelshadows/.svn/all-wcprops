@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/tm/runtime/internal/labelshadows
+END
+LabelShadowSwitchFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/tm/runtime/internal/labelshadows/LabelShadowSwitchFactory.java
+END
+InteractiveLabelShadowSwitchPrompt.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/tm/runtime/internal/labelshadows/InteractiveLabelShadowSwitchPrompt.java
+END
+TimedShadowSwitch.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/tm/runtime/internal/labelshadows/TimedShadowSwitch.java
+END
+AbstractLabelShadowSwitch.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/runtime-src/org/aspectbench/tm/runtime/internal/labelshadows/AbstractLabelShadowSwitch.java
+END

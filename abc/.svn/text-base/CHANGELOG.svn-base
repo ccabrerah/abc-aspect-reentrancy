@@ -1,0 +1,216 @@
+# This file is parsed to produce changelog information in a variety
+# of formats. Start new entries with a '$', and continuation lines 
+# with a ';'. Normally lines denoting a new release are added automatically,
+# but the format is "%<version number> <unixtime>" if you need 
+# to make one of your own. Lines beginning with '#' are ignored, predictably
+# enough. 
+#
+# You should wrap your lines at 76 characters, so that things which indent
+# it further do not run over 80 characters.
+#
+# Information for "extenders", such as a warning of an interface change, 
+# or an addition of a new interface, should be started with a '!' instead 
+# of a '$'.
+# 
+# You should generally avoid changing the file below a line starting
+# with '%', as this would alter the changelog for versions that are already
+# released.
+#
+# If you mess around with the packaging for a specific distribution,
+# add a line saying "^debian:" before the changelog entry (currently only
+# debian and redhat are understood here, and we don't actually have a 
+# redhat package).
+# 
+# If you want to change the name that is recorded as making a release,
+# add a line in the form "&name of releaser <email@address>".
+#
+# The scripts that process this file are:
+# dist/makechangelogs.pl - to generate various formats for it
+# dist/addchangelogrelease.pl - to record a new release in the file, below
+# these comments.
+
+%1.3.0 1207124346
+!The structure of the AbcExtension class has been reworked; in particular,
+;the entire compilation process is now driven by a CompileSequence. This
+;allows greater flexibility in replacing parts of the compiler; in
+;particular, it is possible to replace the complete frontend or backend.
+$abc now has a completely re-written frontend. It is no longer pure-Java,
+;but is a modern form of attribute grammar - compiled with the JastAdd
+;meta-compiler. The new frontend extends the existing Java
+;and Java 5 frontends written by the creator of JastAdd, Torbjorn Ekman.
+;As a result, abc now supports Java 5 source code! (but not AspectJ 5)
+;To use the new frontend, invoke abc with the option: -ext abc.ja
+!abc extenders wishing to write their extensions using JastAdd should
+;extend abc.ja.AbcExtension, abc.ja.CompileSequence, etc. rather than
+;abc.AbcExtension as they normally would - see the new implementation
+;of EAJ-ja for an example of how this is done.
+$abc.eaj now supports the arrayget()/arrayset() pointcut primitives.
+$abc now supports multiple whole-program optimizations for tracematches.
+;Those can be enabled by selecting the extension abc.tmwpopt instead of
+;abc.tm. The optimization level can be set using the command line option
+;-laststage. (see -help)
+$abc.eaj now supports additional pointcuts, in particular the
+;arrayget/arrayset pointcuts and the lock/unlock pointcuts (enabled via
+;-debug enableLockPointcuts)
+;see: https://bugs.eclipse.org/bugs/show_bug.cgi?id=123759
+$abc further supports the new pointcut maybeShared() that matches
+;field set and get events affecting fields which are potentially
+;shared between threads. In the default setting, this pointcut matches
+;*all* sets/gets; to enable whole-program optimizations, state
+;-debug optimizeMaybeSharedPointcut on the command line.
+
+%1.2.1 1154710255
+$abc now supports mutiple reweaving analyses. Those analyses are
+;executed on the woven program and may change e.g. the residues
+;in order to produce a different (e.g. more efficient) woven
+;program. See abc.main.AbcExtension.createReweavingPasses(List) for an
+;example integration of our CFlow optimization.
+;Custom analyses need to implement the
+;abc.weaving.weaver.ReweavingAnalysis interface.
+;They are scheduled via instances of ReweavingPass.
+;Passes can also be annotated with a timeout so that abc stops them
+;automatically when exceeding this timeframe.
+$There have been a number of fixes to the 'indexing' optimisation
+;for tracematches. In particular, it should now behave correctly even
+;for tracematches that include "non-collectable weak reference 
+;indices". Depending on the base program, there may also be
+;performance improvements (we have observed up to 10%).
+!abc has been upgraded to use a newer version of the Polyglot compiler
+;framework. We now use Polyglot 1.3.2, which should significantly
+;improve compilation of pure-java programs.
+
+%1.2.0 1145636677
+$The 'indexing' optimisation for tracematches now doesn't introduce a
+;further dependency by default, but uses classes provided in the abc
+;runtime. The old behaviour can be restored by passing abc the flag
+;'-debug useCommonsCollections'; doing this will of course require a
+;Commons Collections jar on the classpath. Our preliminary experiments
+;suggest that our implementation is slightly slower than the Commons
+;Collections on 1.4 JVMs, but slightly faster on 1.5 JVMs.
+
+%1.1.1 1142785477
+$Implemented various tracematch optimisations, as described in tech
+;report abc-2006-1, available from our website 
+;(http://aspectbench.org). Some of them can be disabled via debug
+;flags, which is how we took some of the numbers given in the tech
+;report. Of interest is '-nodebug useIndexing', which disables the
+;indexing data structures and algorithms, and '-debug
+;onlyStrongRefs', which disables our leak analyses.
+$Currently, if you use tracematches with indexing, there will be
+;an extra compile-time and run-time dependency on the Apache
+;Commons Collections library. This is because the indexing data
+;structures make internal use of it. We plan to implement the
+;data structures fully in abc and so avoid this dependency for
+;our 1.2.0 release.
+$Added two new pointcuts to the EAJ (Extended AspectJ) extension.
+;The first, let(var, expr) binds the variable var to the result of
+;the expression expr. The second takes the form 'contains(pc())'.
+;It matches shadows which contain shadows matching pc().
+$Changes to open module precedence. First, the order induced 
+;by friend and module inclusion is now consistent with 
+;declare precedence (i.e. first declared is executed first).
+;Second, added a constraint that preserves the precedence
+;coherence of friend aspects in a module (i.e. an external aspect 
+;may no longer be inserted between two internal aspects 
+;using declare precedence).
+$Various bugfixes; see Bugzilla for details.
+!You can now customise inlining behaviour by overriding the
+;makeAdviceInliner method in abcExtension. An example can be
+;found in the EAJ extension.
+
+%1.1.0 1129329464
+$Implemented trace match extension. Run this with 'java abc.main.Main
+;-ext abc.tm'. Trace matches are a mechanism for running advice when
+;certain properties hold in the execution trace. The design and
+;implementation is presented in our OOPSLA 2005 paper, available from
+;our website.
+$Implemented open modules extension. Run this with 'java abc.main.Main
+;-ext abc.om'. Our implementation is an extension of Jonathan Aldrich's
+;work to AspectJ, but includes various novel ideas. It is described in
+;detail in tech report abc-2005-2, available from our website.
+$Included the interprocedural analyses described in our PLDI'05 paper
+;in the main abc release. They can be run by specifying the option -O3.
+;Note that if you give this option, you will also have to provide the
+;-main-class <Class> option as a starting point for the control flow
+;analysis.
+$The implementation of advice precedence (which was subtly broken in previous 
+;releases) has been fixed. In MethodAdviceList, advice lists are now 
+;topologically sorted according to precedence. The implementation detects 
+;when there is nondeterminacy in the ordering. Many non-trivial AspectJ 
+;programs are ambiguous in this way, so by default the ambiguities are 
+;not reported. To turn them on, use the flag "-debug warnPrecAmbiguity=true". 
+;We may promote this to a proper flag in future releases, as it is
+;often useful in debugging AspectJ code.
+!If your extension changes the precedence order, or introduces a new
+;kind of advice (other than before/after/around), you should override
+;the getPrecedence method in abcExtension. An example can be found in
+;the tracematch extension abc.tm.
+!If you wish to restrict the matching process by adding conjuncts to
+;existing residue generation, override residueConjuncts in AbcExtension.
+;This provides a way for implementing various aspect interface features
+;via AspectJ. An example can be found in the open modules extension abc.om.
+!The signature of Pointcut.matchesAt has changed to take a MatchingContext
+;that wraps up its previous set of parameters (WeavingEnv, SootClass,
+;SootMethod,ShadowMatch). This makes it possible to write extensions 
+;where matching depends on a richer context than the standard AspectJ
+;one. An example can be found in the open modules extension abc.om.
+
+%1.0.2 1109287327
+$Updated runtime library for a more efficient implementation of cflow. 
+;The -abc101runtime option causes abc to generate code for the previous
+;implementation of cflow for compatibility.
+$Fixed a bug in EAJ with using private pointcut variables together with
+;calls to named pointcuts.
+!Added some javadoc to the abc.weaving.aspectinfo.Pointcut class,
+;to make it clearer what deriving classes need to do.
+$Fixed bugs 44 and 45, which were bugs in the around weaver, and 46, which
+;was to do with casts being erroneously removed by optimisations causing
+;programs which should have thrown an exception to run normally.
+
+%1.0.1 1104961494
+$Fixed bug 34, in which arithmetic calculations within strings were sometimes
+;misinterpreted as string concatenation. Thanks to Jonathan Churchill for
+;reporting this bug.
+$Fixed bug 35, Java identifiers containing '$' are not "visible" from
+;pointcuts. Thanks to Kevin Viggers for an extremely clear description of the
+;precise problem and the code for the fix.
+$Fixed bug 36, in which circular references to named pointcuts within
+;cflow caused a stack overflow.
+$Fixed bug 37, named pointcuts and multiply nested cflows interact badly.
+$Added support for inlining of advice bodies at join point shadows. A 
+;heuristic is used to decide when to do this. Inlining also exposes 
+;opportunities for removing the boxing that is sometimes associated with
+;advice implementation. The original advice bodies are also removed
+;if rendered redundant by inlining.
+$Updated runtime library to return a value copy of the argument list from
+;thisJoinPoint.getArgs(), in line with ajc bug 67592.
+
+!If you extend ShadowMatch, AdviceApplication, Residue, 
+;WeavingVar or ContextValue, you will need to implement a new method called 
+;inline. The purpose of this method is to handle a new implementation of 
+;constructor inlining. It should normally be straightforward to implement 
+;this method; if your class contains any references to Jimple values you 
+;will need to look up new versions of these references using a mapping that 
+;is provided, and construct a new copy of the object. The implementations 
+;in the standard abc classes should be easy to adapt.
+!If you extend Residue, you will also need to implement a new optimize()
+;method. If your residue does not itself contain residues, you can just
+;return the same object.
+!If you extend Pointcut, the inline method has acquired a new parameter
+;which you can normally just ignore, or pass unchanged to any contained
+;pointcuts. The sensible thing to do would be to replace this set of
+;parameters with an object, and this may happen in future.
+!The current implementation of advice precedence is broken and needs a 
+;redesign, which will happen soon. This will likely have an impact on
+;the doAddAdviceApplication method in subclasses of ShadowMatch.
+!Some abc variables that can only hold Jimple immediates (locals or constants)
+;but previously had the overly generic declared type Value now have the
+;tighter type Immediate.
+
+%1.0.0 1098443519
+
+$Changed package root for runtime stuff from uk.ac.ox.comlab.abc 
+;to org.aspectbench
+$Started keeping changelog (the one for this release is incomplete)
+
+&abc development team <abc-dev@comlab.ox.ac.uk>

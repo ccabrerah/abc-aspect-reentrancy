@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/ajc-harness/lib
+END
+abc-testing-ajc-part.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/ajc-harness/lib/abc-testing-ajc-part.jar
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/ajc-harness/lib/.cvsignore
+END

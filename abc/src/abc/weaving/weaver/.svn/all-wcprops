@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc/src/abc/weaving/weaver
+END
+CflowStackCounter.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/CflowStackCounter.java
+END
+SingleValueWeavingContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/SingleValueWeavingContext.java
+END
+AspectCodeGen.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/AspectCodeGen.java
+END
+ConstructorInliningMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/ConstructorInliningMap.java
+END
+AdviceInliner.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/AdviceInliner.java
+END
+ReweavingPass.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/ReweavingPass.java
+END
+DeclareParentsConstructorFixup.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/DeclareParentsConstructorFixup.java
+END
+AbstractReweavingAnalysis.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/AbstractReweavingAnalysis.java
+END
+ShadowPoints.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/ShadowPoints.java
+END
+CodeGenException.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/CodeGenException.java
+END
+IntertypeAdjuster.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/IntertypeAdjuster.java
+END
+UnusedMethodsRemover.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/UnusedMethodsRemover.java
+END
+Weaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/Weaver.java
+END
+AdviceApplicationVisitor.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/AdviceApplicationVisitor.java
+END
+WeavingState.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/WeavingState.java
+END
+ChainStmtBox.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/ChainStmtBox.java
+END
+RebindingShadowPoints.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/RebindingShadowPoints.java
+END
+AfterBeforeInliner.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/AfterBeforeInliner.java
+END
+WeavingContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/WeavingContext.java
+END
+ConstructorInliner.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/ConstructorInliner.java
+END
+DeclareParentsWeaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/DeclareParentsWeaver.java
+END
+AroundInliner.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/AroundInliner.java
+END
+ShadowPointsSetter.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/ShadowPointsSetter.java
+END
+InterprocConstantPropagator.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/InterprocConstantPropagator.java
+END
+CflowCodeGenUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2093/reentrancy/abc-final/abc/src/abc/weaving/weaver/CflowCodeGenUtils.java
+END
+AdviceWeavingContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/AdviceWeavingContext.java
+END
+PrintAdviceInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/PrintAdviceInfo.java
+END
+BoxingRemover.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/BoxingRemover.java
+END
+PointcutCodeGen.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/PointcutCodeGen.java
+END
+ReweavingAnalysis.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/ReweavingAnalysis.java
+END
+Unweaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/Unweaver.java
+END
+GenStaticJoinPoints.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/weaving/weaver/GenStaticJoinPoints.java
+END

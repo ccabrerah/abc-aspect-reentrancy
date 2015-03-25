@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/eaj/weaving/weaver
+END
+SynchronizedMethodRestructurer.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/eaj/weaving/weaver/SynchronizedMethodRestructurer.java
+END
+AdviceInliner.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/eaj/weaving/weaver/AdviceInliner.java
+END
+SyncWarningWeaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/eaj/weaving/weaver/SyncWarningWeaver.java
+END

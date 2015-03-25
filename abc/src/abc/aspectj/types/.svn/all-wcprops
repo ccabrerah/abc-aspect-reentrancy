@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types
+END
+AJContext.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AJContext.java
+END
+InterTypeMemberInstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/InterTypeMemberInstance.java
+END
+AJTypeSystem.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AJTypeSystem.java
+END
+AJContext_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AJContext_c.java
+END
+AJTypeSystem_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AJTypeSystem_c.java
+END
+AJFlags.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AJFlags.java
+END
+InterTypeMethodInstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/InterTypeMethodInstance.java
+END
+InterTypeMethodInstance_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/InterTypeMethodInstance_c.java
+END
+InterTypeFieldInstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/InterTypeFieldInstance.java
+END
+InterTypeFieldInstance_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/InterTypeFieldInstance_c.java
+END
+InterTypeConstructorInstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/InterTypeConstructorInstance.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/package.html
+END
+InterTypeConstructorInstance_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/InterTypeConstructorInstance_c.java
+END
+AspectType.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AspectType.java
+END
+AdviceInstance_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AdviceInstance_c.java
+END
+AspectType_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/AspectType_c.java
+END
+PointcutInstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/PointcutInstance.java
+END
+PointcutInstance_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/types/PointcutInstance_c.java
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds
+END
+ITDOptimisation.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/ITDOptimisation.java
+END
+FreshnessAnalysis.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/FreshnessAnalysis.java
+END
+ITDAnalysis.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/ITDAnalysis.java
+END
+Introductions.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/Introductions.java
+END
+ITDAnalysisResults.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/ITDAnalysisResults.java
+END
+JimpleEditor.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/JimpleEditor.java
+END
+JimpleGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/JimpleGenerator.java
+END
+DisjunctUpdates.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/DisjunctUpdates.java
+END
+NameLookup.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/tm/weaving/weaver/itds/NameLookup.java
+END

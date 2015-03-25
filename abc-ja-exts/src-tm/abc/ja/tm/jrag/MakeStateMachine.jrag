@@ -1,0 +1,130 @@
+/* abc - The AspectBench Compiler
+ * Copyright (C) 2008 Pavel Avgustinov
+ * Copyright (C) 2008 Torbjorn Ekman
+ * Copyright (C) 2008 Julian Tibble
+ *
+ * This compiler is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This compiler is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this compiler, in the file LESSER-GPL;
+ * if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+aspect MakeStateMachine
+{
+    syn StateMachine Regex.stateMachine()
+    {
+        StateMachine sm = new TMStateMachine();
+        SMNode start = (SMNode) sm.newState();
+        start.setInitial(true);
+        SMNode finish = (SMNode) sm.newState();
+        finish.setFinal(true);
+        makeSM(sm, start, finish, true);
+        return sm;
+    }
+
+    public abstract void Regex.makeSM(StateMachine sm, SMNode start,
+                                      SMNode finish, boolean own_start);
+
+    public void RegexAlternation.makeSM(StateMachine sm, SMNode start,
+                                        SMNode finish, boolean own_start)
+    {
+        getLhs().makeSM(sm, start, finish, false);
+        getRhs().makeSM(sm, start, finish, false);
+    }
+
+    public void RegexSequence.makeSM(StateMachine sm, SMNode start,
+                                     SMNode finish, boolean own_start)
+    {
+        SMNode middle = (SMNode) sm.newState();
+        getLhs().makeSM(sm, start, middle, own_start);
+        getRhs().makeSM(sm, middle, finish, true);
+    }
+
+    public void RegexSymbol.makeSM(StateMachine sm, SMNode start,
+                                   SMNode finish, boolean own_start)
+    {
+        sm.newTransition(start, finish, getSymbolAccess().name());
+    }
+
+    public void RegexStar.makeSM(StateMachine sm, SMNode start,
+                                 SMNode finish, boolean own_start)
+    {
+        SMNode loop_node;
+        if (own_start) {
+            loop_node = start;
+        } else {
+            loop_node = (SMNode) sm.newState();
+            sm.newTransition(start, loop_node, null);
+        }
+        getRegex().makeSM(sm, loop_node, loop_node, false);
+        sm.newTransition(loop_node, finish, null);
+    }
+
+    public void RegexPlus.makeSM(StateMachine sm, SMNode start,
+                                 SMNode finish, boolean own_start)
+    {
+        SMNode loop_node;
+        if (own_start) {
+            loop_node = start;
+        } else {
+            loop_node = (SMNode) sm.newState();
+            sm.newTransition(start, loop_node, null);
+        }
+        getRegex().makeSM(sm, loop_node, loop_node, false);
+        getRegex().makeSM(sm, loop_node, finish, false);
+    }
+
+    public void RegexCount.makeSM(StateMachine sm, SMNode start,
+                                  SMNode finish, boolean own_start)
+    {
+        int min = getMin().constant().intValue();
+        int max = getMax().constant().intValue();
+        if (min == 0)
+            sm.newTransition(start, finish, null);
+        SMNode middle = start;
+        // max is always >= 1
+        for (int i = 1; i < max; i++) {
+            SMNode s = (SMNode) sm.newState();
+            getRegex().makeSM(sm, middle, s, false);
+            if (i >= min)
+                sm.newTransition(s, finish, null);
+            middle = s;
+        }
+        getRegex().makeSM(sm, middle, finish, false);
+    }
+
+    public void RegexSkipSequence.makeSM(StateMachine sm, SMNode start,
+                                         SMNode finish, boolean own_start)
+    {
+        SMNode middle = (SMNode) sm.newState();
+        getLhs().makeSM(sm, start, middle, own_start);
+        getRhs().makeSM(sm, middle, finish, false);
+
+        for (int i = 0; i < numSymbols(); i++)
+            sm.newTransition(middle, middle, symbol(i).name());
+    }
+
+    inh int RegexSkipSequence.numSymbols();
+    eq TraceMatchDecl.getPointcutExpr().numSymbols() = getNumSymbolDecl();
+    eq Program.getCompilationUnit().numSymbols()
+    {
+        throw new InternalCompilerError("regex outside of tracematch");
+    }
+
+    inh SymbolDecl RegexSkipSequence.symbol(int i);
+    eq TraceMatchDecl.getPointcutExpr().symbol(int i) = getSymbolDecl(i);
+    eq Program.getCompilationUnit().symbol(int i)
+    {
+        throw new InternalCompilerError("regex outside of tracematch");
+    }
+}

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant
+END
+ant.settings
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/ant.settings
+END
+srcs.list
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/srcs.list
+END
+bins.list
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/bins.list
+END
+.cvsignore
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/.cvsignore
+END
+LESSER-GPL
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/incubator/!svn/ver/2090/reentrancy/abc-final/abc-ja-reentrant/LESSER-GPL
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/incubator/!svn/ver/2095/reentrancy/abc-final/abc-ja-reentrant/README
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/incubator/!svn/ver/2130/reentrancy/abc-final/abc-ja-reentrant/build.xml
+END

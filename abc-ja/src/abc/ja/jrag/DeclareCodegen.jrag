@@ -1,0 +1,74 @@
+/* abc - The AspectBench Compiler
+ * Copyright (C) 2008 Pavel Avgustinov
+ * Copyright (C) 2008 Torbjorn Ekman
+ * Copyright (C) 2008 Julian Tibble
+ *
+ * This compiler is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This compiler is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this compiler, in the file LESSER-GPL;
+ * if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+import abc.weaving.aspectinfo.DeclareMessage;
+
+aspect DeclareCodegen
+{
+    // the following declare-statements have pointcuts as
+    // children, which may need to generate Jimple
+    public void DeclareWarning.jimplify2()
+    {
+        getPointcutExpr().jimplify2();
+        globalAspectInfo().addDeclareMessage(declareMessage());
+    }
+
+    public void DeclareError.jimplify2()
+    {
+        getPointcutExpr().jimplify2();
+        globalAspectInfo().addDeclareMessage(declareMessage());
+    }
+
+    syn DeclareMessage DeclareWarning.declareMessage() =
+        new DeclareMessage(DeclareMessage.WARNING,
+                           getPointcutExpr().pointcut(),
+                           getMessage(),
+                           aspectClass(),
+                           pos());
+
+    syn DeclareMessage DeclareError.declareMessage() =
+        new DeclareMessage(DeclareMessage.ERROR,
+                           getPointcutExpr().pointcut(),
+                           getMessage(),
+                           aspectClass(),
+                           pos());
+
+
+    public void DeclareSoft.jimplify2()
+    {
+        getPointcutExpr().jimplify2();
+        globalAspectInfo().addDeclareSoft(
+            new abc.weaving.aspectinfo.DeclareSoft(
+                getAccess().type().abcType(),
+                getPointcutExpr().pointcut(),
+                aspectClass(),
+                pos()));
+    }
+
+    refine ExceptionHandling public void MethodAccess.exceptionHandling() { }
+    refine ExceptionHandling public void ConstructorAccess.exceptionHandling() { }
+    refine ExceptionHandling public void ThrowStmt.exceptionHandling() { }
+
+    protected boolean Proceed.reachedException(TypeDecl type)
+    {
+        return true; // assume that proceed() can throw anything
+    }
+}

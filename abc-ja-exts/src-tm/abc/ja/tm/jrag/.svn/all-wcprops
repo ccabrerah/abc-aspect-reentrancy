@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag
+END
+PerThread.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/PerThread.jrag
+END
+MakeStateMachine.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/MakeStateMachine.jrag
+END
+tm.ast
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/tm.ast
+END
+TMCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/TMCodegen.jrag
+END
+TMNameAnalysis.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/TMNameAnalysis.jrag
+END
+TMErrorCheck.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/TMErrorCheck.jrag
+END
+SymbolCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/SymbolCodegen.jrag
+END
+SymbolNameAnalysis.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/SymbolNameAnalysis.jrag
+END
+TMPointcutCodegen.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/TMPointcutCodegen.jrag
+END
+TMInfo.jrag
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc-ja-exts/src-tm/abc/ja/tm/jrag/TMInfo.jrag
+END

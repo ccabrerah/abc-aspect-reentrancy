@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast
+END
+ModMemberClass_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModMemberClass_c.java
+END
+OpenModNodeFactory_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenModNodeFactory_c.java
+END
+SigMemberMethodDecl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberMethodDecl.java
+END
+ModuleBody_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModuleBody_c.java
+END
+ModMember.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModMember.java
+END
+OpenClassMemberFlag.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlag.java
+END
+ModMemberAspect_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModMemberAspect_c.java
+END
+OpenClassMemberFlagMethod.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlagMethod.java
+END
+SigMemberAdvertiseDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberAdvertiseDecl_c.java
+END
+SigMember_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMember_c.java
+END
+OpenClassMemberFlagField.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlagField.java
+END
+ModMemberModule.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModMemberModule.java
+END
+ModuleDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModuleDecl_c.java
+END
+OpenClassMember_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMember_c.java
+END
+CPEFlags.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/CPEFlags.java
+END
+OpenClassMemberFlagParent_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlagParent_c.java
+END
+SigMemberPCDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberPCDecl_c.java
+END
+SigMemberExposeDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberExposeDecl_c.java
+END
+ModMemberClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModMemberClass.java
+END
+OpenModNodeFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenModNodeFactory.java
+END
+ModuleBody.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModuleBody.java
+END
+OpenClassFlags.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassFlags.java
+END
+SigMemberMethodDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberMethodDecl_c.java
+END
+ModMemberAspect.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModMemberAspect.java
+END
+SigMemberAdvertiseDecl.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberAdvertiseDecl.java
+END
+SigMember.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMember.java
+END
+OpenClassMemberFlag_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlag_c.java
+END
+OpenClassMemberFlagMethod_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlagMethod_c.java
+END
+ModuleDecl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModuleDecl.java
+END
+OpenClassMemberFlagField_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlagField_c.java
+END
+OpenClassMember.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMember.java
+END
+ModMemberModule_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/ModMemberModule_c.java
+END
+OpenClassMemberFlagParent.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/OpenClassMemberFlagParent.java
+END
+DummyAspectDecl_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/DummyAspectDecl_c.java
+END
+SigMemberPCDecl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberPCDecl.java
+END
+SigMemberExposeDecl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/SigMemberExposeDecl.java
+END
+CPEFlags_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/om/ast/CPEFlags_c.java
+END

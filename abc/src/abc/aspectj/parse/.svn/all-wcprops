@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse
+END
+LexerAction_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/LexerAction_c.java
+END
+PerClauseLexerAction_c.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/PerClauseLexerAction_c.java
+END
+AbcLexer.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/AbcLexer.java
+END
+aspectj_ppg.cup
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/aspectj_ppg.cup
+END
+aspectj.flex
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/aspectj.flex
+END
+jj.ppg
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/jj.ppg
+END
+java12.cup
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/java12.cup
+END
+LexerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/LexerAction.java
+END
+aspectj.ppg
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/aspectj.ppg
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/incubator/!svn/ver/2091/reentrancy/abc-final/abc/src/abc/aspectj/parse/package.html
+END
