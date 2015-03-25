@@ -1,4 +1,0 @@
-BodyDecl aspect_body_declaration = 
-  DECLARE PRECEDENCE COLON class_type_list.l SEMICOLON
-  {: return new DeclarePrecedence(l); :}
-  ;
